@@ -1,75 +1,29 @@
-# 🚗 Sistema de Inteligência Territorial para Otimização de Estoque
+# Sistema de Inteligência Territorial para Otimização de Estoque
 
-![Mapa de Influência Territorial](./maps/mapa_estoque.png)
+Este repositório contém o projeto desenvolvido como parte da disciplina de Modelagem de Banco de Dados. O sistema visa otimizar a distribuição de veículos em uma rede de concessionárias, utilizando inteligência de dados e análise geoespacial para reduzir o tempo de estoque parado e aumentar a rotatividade de vendas.
 
-## 📌 Sobre o Projeto
+## 🚀 Tecnologias Utilizadas
+- **Banco de Dados:** PostgreSQL 16
+- **Geoprocessamento:** PostGIS
+- **Visualização e Análise:** QGIS (Layouts de Impressão)
+- **Modelagem:** brModelo
+- **Linguagem:** SQL (PL/pgSQL para automação)
 
-Este projeto apresenta uma solução de Inteligência Territorial aplicada à gestão de estoque de veículos em uma rede de concessionárias.
+## 🧠 Destaques Técnicos
+- **Análise Espacial:** Utilização de buffers de 80km (via `ST_DWithin`) para delimitar áreas de influência comercial.
+- **Automação:** Implementação de funções (`fn_recomendar_loja_veiculo`) e triggers (`trg_recomendar_loja_veiculo`) que recomendam automaticamente a realocação de veículos com base em categoria, público-alvo e preço.
+- **Governança:** Estrutura de dados normalizada e otimizada para suporte à decisão estratégica.
 
-O objetivo é utilizar dados operacionais, informações socioeconômicas e análise espacial para identificar oportunidades de realocação de veículos entre unidades, reduzindo tempo de estoque parado e aumentando a eficiência comercial.
+## 📁 Estrutura do Repositório
+- `/database`: Contém os scripts `.sql` para criação das tabelas, funções e triggers.
+- `/maps`: Mapas finais de severidade de estoque e influência territorial (PNG/PDF).
+- `/docs`: Relatório completo detalhando a modelagem lógica, requisitos e resultados alcançados.
 
-A solução integra **Banco de Dados Geográfico, SQL avançado e análise espacial**, transformando dados em recomendações estratégicas para tomada de decisão.
+## 📊 Visualização de Resultados
+Os mapas foram gerados no QGIS, integrando dados econômicos do IBGE com as métricas operacionais da rede de concessionárias.
 
----
-
-# 🎯 Problema de Negócio
-
-Veículos parados em estoque representam capital imobilizado e perda de oportunidade comercial.
-
-O sistema busca responder:
-
-- Qual concessionária possui maior potencial para determinado veículo?
-- Existe demanda regional compatível com o perfil do veículo?
-- A distância entre lojas e clientes influencia a decisão de realocação?
-
----
-
-# 🏗️ Arquitetura da Solução
-
-Fluxo geral:
-
-Dados Operacionais  
-⬇️  
-PostgreSQL + PostGIS  
-⬇️  
-Regras de Inteligência Territorial (PL/pgSQL)  
-⬇️  
-QGIS para análise e visualização  
-⬇️  
-Recomendação estratégica de alocação
 
 
 ---
-
-# 🚀 Tecnologias Utilizadas
-
-| Categoria | Tecnologias |
-|---|---|
-| Banco de Dados | PostgreSQL 16 |
-| Banco Espacial | PostGIS |
-| Análise Geográfica | QGIS |
-| Modelagem | brModelo |
-| Linguagem | SQL / PL-PGSQL |
-
----
-
-# 🧠 Principais Implementações Técnicas
-
-## 🌎 Análise Espacial
-
-Utilização da função:
-
-`ST_DWithin`
-
-para criação de áreas de influência comercial através de buffers de aproximadamente 80 km.
-
-Essa abordagem permite identificar concessionárias dentro de uma região estratégica para atendimento da demanda.
-
----
-
-## ⚙️ Automação de Recomendação
-
-Foi desenvolvida a função:
-
-```sql
-fn_recomendar_loja_veiculo()
+*Desenvolvido por: Eliezer, Luiz e William Freitas.*
+*Orientação: Profa. Yara | 2026*
